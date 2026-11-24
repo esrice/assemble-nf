@@ -149,7 +149,7 @@ workflow {
 }
 
 output {
-    assemblies {
+    assemblies_out {
         path { "${it[0]}/assemblies/"}
     }
 

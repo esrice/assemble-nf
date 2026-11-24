@@ -76,6 +76,7 @@ process assemblyStats {
     output:
         tuple val(sample_id), path("*.stats")
 
+    script:
     """
     assembly-stats -s $fa > ${fa.baseName}.stats
     """
@@ -90,6 +91,7 @@ process compleasm {
     output:
         tuple val(sample_id), path("*-compleasm/")
 
+    script:
     """
     compleasm run -t ${task.cpus} \
         -l ${params.lineage} \
@@ -108,6 +110,7 @@ process inspector {
     output:
         tuple val(sample_id), path("*.inspector_stats")
 
+    script:
     """
     inspector.py -t ${task.cpus} \
         -d pacbio-hifi \

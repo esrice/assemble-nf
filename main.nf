@@ -131,7 +131,7 @@ workflow {
     validateParams()
 
     samples = Channel
-        .from(params.sampleSheet)
+        .fromPath(params.sampleSheet)
         .splitCsv(header: true)
         .map { row -> tuple(row.sample_id, row.fastqs.tokenize(';').collect { file(it) }) }
     hifiasm(samples)

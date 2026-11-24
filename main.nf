@@ -33,8 +33,8 @@ def validateParams() {
         error "Missing mandatory parameter(s): ${missing.collect { '--' + it }.join(', ')}"
     }
 
-    if (!file(params.samplesheet).exists())
-        error "Sample sheet not found: ${params.samplesheet}"
+    if (!file(params.sampleSheet).exists())
+        error "Sample sheet not found: ${params.sampleSheet}"
     if (!file(params.odbLocation).exists())
         error "ODB not found: ${params.reference}"
 }

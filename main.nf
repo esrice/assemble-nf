@@ -89,7 +89,7 @@ process compleasm {
         tuple val(sample_id), path(fa)
 
     output:
-        tuple val(sample_id), path("*-compleasm/")
+        tuple val(sample_id), path("${fa.baseName}.compleasm.txt")
 
     script:
     """
@@ -98,6 +98,7 @@ process compleasm {
         -L ${params.odbLocation} \
         -a $fa \
         -o ${fa.baseName}-compleasm
+    cp ${fa.baseName}-compleasm/summary.txt ${fa.baseName}.compleasm.txt
     """
 }
 
